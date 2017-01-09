@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<title>home</title>
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/stylesheets/reset.css"/>
+<link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+</head>
+<body >
+	<header class="header header_bg">
+		<i class="fa fa-angle-left fa-lg  right-return_btn"><span >返回</span></i>
+		<p class="regist_title edit">编辑</p>
+		<div class="pik-great">
+			<i class="fa fa-thumbs-up"></i> <span>75</span>
+		</div>
+	</header>
+	<div class="personal-img">
+		<div class="personal-header">
+			<img src="/images/header.jpg" alt="">
+		</div>
+		<div>
+			<p  class="q_title">黑暗骑士</p>
+		</div>
+		<div>
+			<p>详细信息</p>
+		</div>
+	</div>
+	<main>
+		<ul class="list-unstyled message-ul">
+			<li style="border: 1px solid #eee; margin-top:15px;" >
+				<div class="message-wrap clearfix">
+					<div class="col-xs-2 personal-q">
+						<i class="fa fa-qq"></i>
+					</div>
+					<div class="col-xs-8 message_info">
+						<div class="q_title">
+							<p>1203956026</p>
+						</div>
+						<div class="q_tip">
+							<p class="rank"><i class="fa fa-diamond"></i> <i class="fa fa-diamond"></i> <i class="fa fa-heart"></i> <span style="color: #999"> 慢速中</span></p>
+						</div>
+					</div>
+					<div class="col-xs-2 personal-right">
+						<i class="fa fa-angle-right"></i>
+					</div>
+				</div>
+			</li>
+			<li  >
+				<div class="message-wrap clearfix">
+					<div class="col-xs-2 personal-q">
+						<i class="fa fa-user-secret"></i>
+					</div>
+					<div class="col-xs-8 message_info">
+						<div class="q_title">
+							<p>1203956026</p>
+						</div>
+						<div class="q_tip">
+							<p class="rank"><i class="fa fa-diamond"></i> <i class="fa fa-diamond"></i> <i class="fa fa-heart"></i> <span style="color: #999"> 慢速中</span></p>
+						</div>
+					</div>
+					<div class="col-xs-2 personal-right">
+						<i class="fa fa-angle-right"></i>
+					</div>
+				</div>
+			</li>
+			<li  >
+				<div class="message-wrap clearfix">
+					<div class="col-xs-2 personal-q">
+						<i class="fa fa-star"></i>
+					</div>
+					<div class="col-xs-8 message_info">
+						<div class="q_title">
+							<p>1203956026</p>
+						</div>
+						<div class="q_tip">
+							<p>黑暗骑士的空间</p>
+						</div>
+					</div>
+					<div class="col-xs-2 personal-right">
+						<i class="fa fa-angle-right"></i>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</main>
+		<div class="footer home-footer clearfix personal-btn-group" style="background: #f8f8f8">
+			<div class="col-xs-6 ">
+				<button class="btn btn-default btn-lg">个性名片</button>
+			</div>
+			<div class="col-xs-6">
+				<button class="btn btn-primary btn-lg">上传图片</button>
+			</div>
+			
+		</div>
+
+
+
+
+	<script src="/javascripts/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/slideout.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/main.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
