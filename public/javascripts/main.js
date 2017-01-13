@@ -1,6 +1,9 @@
 $(function(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 
 var View={
 	createWrapper : function(){
@@ -11,13 +14,19 @@ var View={
 				setTimeout(function(){
 					hide.remove();
 				},500);
+<<<<<<< HEAD
 			
+=======
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 		});
 		return wrapper;
 	},
 }
 
+<<<<<<< HEAD
 >>>>>>> bd70c15cf5ac19615633b954a4062be3e0ec5309
+=======
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 	var before_h=$(window).height() ;
 	$(window).resize(function(){
 		var now_h=$(window).height() ;
@@ -71,9 +80,13 @@ var View={
 		})
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> bd70c15cf5ac19615633b954a4062be3e0ec5309
+=======
+
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 	})
 	$("#login_btn").click(function(){
 		$.ajax({
@@ -108,6 +121,7 @@ var View={
 		$(this).addClass('home_title_class');
 	})
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	var socket = io();
 	var from_=$(".q_title").html();
@@ -161,6 +175,10 @@ var View={
 =======
 	var socket = io().connect('localhost');
 	$(".message-ul li").click(function(){
+=======
+
+	$(".message-ul li").click(function(){
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 		var to =$(this).attr('to');
 		var from_ =$(this).attr('from');
 		$.ajax({
@@ -173,6 +191,10 @@ var View={
 			success:function(h){
 	            var wrapper = View.createWrapper();
 				wrapper.html(h);
+<<<<<<< HEAD
+=======
+					var socket = io().connect('localhost');
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 				//发送消息	
 				$("#btn_msg_send").click(function(){
 					var to=$(this).attr('to');
@@ -189,17 +211,25 @@ var View={
 					}
 				});
 				//接收消息
+<<<<<<< HEAD
 				
 				socket.on(from_ + '_message', function(from, msg, time) {
 
 					console.log(msg);
+=======
+				socket.on(from_ + '_message', function(from, msg, time) {
+					console.log(msg)
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 				   // var message = from + "  " + new Date(time).toLocaleString() + "\n" + msg + '\n';
 				    var chat_content="<div class='clearfix chat-content-wrap'><div class='chat-header fl'>"
 					+"<img src='/images/header.jpg'></div><div class='cx_org_box'><div class='chat-content'>"+msg+"</div><span class='cx_org_cor'></span></div></div>"
 					$("#chat-list").append(chat_content);
 				    //updateMsgForm(message);
 					$('#chat-list-wrap').scrollTop( $('#chat-list-wrap')[0].scrollHeight );
+<<<<<<< HEAD
 						alert()
+=======
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 				});
 				var beforeh=$(window).height();
 				$(window).resize(function(){
@@ -209,11 +239,18 @@ var View={
 					$('#chat-list-wrap').css('padding-bottom',beforeh-nowh-chatListh+50);
 					$('#chat-list-wrap').scrollTop( $('#chat-list-wrap')[0].scrollHeight );	
 				})
+<<<<<<< HEAD
 			}
 		})
 
 	})
 >>>>>>> bd70c15cf5ac19615633b954a4062be3e0ec5309
+=======
+
+			}
+		})
+	})
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 
 
 })

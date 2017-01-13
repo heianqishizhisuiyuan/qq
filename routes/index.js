@@ -53,6 +53,7 @@ router.get('/userRemove_',function(req,res){
 	})
 	
 })
+<<<<<<< HEAD
 //用户列表
 router.get('/userlist',function(req,res){
 	UserModel.find({},function(err,user){
@@ -60,6 +61,8 @@ router.get('/userlist',function(req,res){
 		res.render("userlist.html",{user:user||{}});
 	})
 })
+=======
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 //用户注册
 router.post('/regist_',function(req,res){
 	var user_name=req.body['user_name'];

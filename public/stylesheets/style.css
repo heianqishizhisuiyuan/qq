@@ -469,6 +469,7 @@ body,html{
   padding-right: 10px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .wrapper_wrapper_init{
   display: none;
 }
@@ -477,6 +478,9 @@ body,html{
 =======
 .wrapper_wrapper{
 >>>>>>> bd70c15cf5ac19615633b954a4062be3e0ec5309
+=======
+.wrapper_wrapper{
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
   height: 100%;
   width: 100%;
   background: rgb(240,240,240);
@@ -499,6 +503,7 @@ body,html{
   top: 0;
   left: 0;
   overflow: hidden;
+<<<<<<< HEAD
   -webkit-animation: wrapper_hide 0.5s linear forwards  ;
 }
 .wrapper_hide2{
@@ -511,4 +516,12 @@ body,html{
 @-webkit-keyframes wrapper_hidel{
   from{-webkit-transform: translateX(100%);}
   to{-webkit-transform: translateX(0);}
+=======
+  -webkit-animation: wrapper_hide 0.5s linear;
+}
+
+@-webkit-keyframes wrapper_hide{
+  from{-webkit-transform: translateX(0);}
+  to{-webkit-transform: translateX(100%);}
+>>>>>>> be319d4873ce8a58ca3ed5816bae74c1274adc41
 }
