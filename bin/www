@@ -1,0 +1,157 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('myapp:server');
+var http = require('http');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+console.log("Your port number is "+port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+/*
+ socket.io 数据模块
+ */
+
+var mongoose = require("mongoose");
+
+var db = mongoose.createConnection('localhost', 'multiroom');
+db.on('error', function(err) {
+ console.error(err);
+});
+
+var ChatinfoModel=require('../routes/user_model').ChatinfoSchema;
+
+var Schema = mongoose.Schema;
+// 聊天信息表
+var ChatSchema = new Schema({
+ from: String,
+ to: String,
+ time: Number,
+ msg: String,
+ status: String
+});
+var chatinfo = {};
+ChatinfoModel.findOne({}, function(err, data) {
+ if (err) throw err;
+ chatinfo = data;
+});
+var io=require('socket.io')(server);
+io.on('connection', function(socket) {
+  console.log('a user connect');
+  // 处理所有的聊天信息,所传递的参数包括: from(发送者), to(接收者), msg(聊天信息)
+  socket.on('chat message', function(from, to, msg) {
+    var time = Date.now();
+    // 将聊天信息存入数据库中
+    if (chatinfo.users) {
+      var ChatModel = db.model(from + "_" + to, ChatSchema);
+      if (chatinfo.users.indexOf(from) > chatinfo.users.indexOf(to)) {
+        ChatModel = db.model(to + "_" + from, ChatSchema);
+      }
+      var chat = new ChatModel();
+      chat.from = from;
+      chat.to = to;
+      chat.time = Date.now();
+      chat.msg = msg;
+      chat.save(function(err) {
+        if (err) throw err;
+      });
+    }
+    console.log(msg)
+    // 将信息发送给to(接收者)
+    io.emit(to + '_message', from, msg, time);
+  });
+});
+
+
+/*var io=require('socket.io')(server);
+io.on('connection',function(socket){
+  socket.on('foo',function(data){
+    console.log(socket.id);
+  })
+  socket.emit('news', { hello: 'world' });
+})
+*/
+
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

@@ -1,0 +1,28 @@
+<DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>用户列表</title>
+</head>
+<body>
+	<table border="1" cellspacing="0">
+		<caption>用户表</caption>
+		<thead>
+			<tr>
+				<th>用户名</th>
+				<th>电话</th>
+				<th>密码</th>
+			</tr>
+		</thead>
+		<tbody>
+		<%user.forEach(function(key,val){%>
+			<tr>
+				<td><%=key.username%></td>
+				<td><%=key.nickname%></td>
+				<td><%=key.password%></td>
+			</tr>
+		<%})%> 
+		</tbody>
+	</table>
+
+</body>
+</html>
